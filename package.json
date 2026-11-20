@@ -1,0 +1,58 @@
+{
+  "name": "model-failover",
+  "version": "0.1.0",
+  "description": "Fallback/routing between OpenAI-compatible model providers: attempt provider 1, and on a retryable failure (429, 5xx, timeout, network error, or provider-side quota/billing exhaustion) fall through to the next provider instead of getting stuck. Zero runtime dependencies.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test --experimental-strip-types test/*.test.ts",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "llm",
+    "openai",
+    "openai-compatible",
+    "fallback",
+    "failover",
+    "routing",
+    "provider",
+    "rate-limit",
+    "retry",
+    "resilience",
+    "ai",
+    "chat-completions"
+  ],
+  "author": "Linkrra <weare@linkrra.com> (https://synap402.com)",
+  "license": "MIT",
+  "homepage": "https://github.com/weare-linkrra/model-failover#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weare-linkrra/model-failover.git"
+  },
+  "bugs": {
+    "url": "https://github.com/weare-linkrra/model-failover/issues"
+  },
+  "engines": {
+    "node": ">=20.3"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "~5.9.3"
+  }
+}
